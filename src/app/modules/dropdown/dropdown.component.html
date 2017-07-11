@@ -1,0 +1,11 @@
+<div class="dropdown" [ngClass]="{'dropdown--expanded': expanded}">
+  <div class="title" (click)="toggle()">
+
+    {{title}}{{ items[activeIndex] }}
+
+  </div>
+  <ul class="list">
+    <li *ngFor="let item of items; let i = index" [ngClass]="{active: activeIndex == i}" (click)="select(i)">{{ item }}</li>
+  </ul>
+</div>
+<div *ngIf="items[activeIndex]" (click)="clear()" class="clear-icon">Clear</div>
